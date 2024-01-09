@@ -2,27 +2,34 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),button{new QPushButton("38.1"),new QPushButton("38.2"),new QPushButton("38.3")},
-    widget{new QWidget}, layout{new QGridLayout},sound_button{new SOUND_BUTTON}
+    widget{new QWidget}, layout{new QGridLayout},sound_button{new SOUND_BUTTON},html_edit{new HTML_editor}
 {
     setMinimumSize(300,300);
-
     setCentralWidget(widget);
     widget->setLayout(layout);
-    layout->setAlignment(Qt::AlignBottom);
+
 
     for(int i{}; i < 3;++i)
     {
-        layout->addWidget(button[i],1,i);
+        layout->addWidget(button[i],3,i);
         connect(button[i],&QPushButton::clicked,this,[this,i](){ click_button(i);});
     }
     layout->addWidget(sound_button,0,0,1,3);
+    layout->addLayout(html_edit,1,0,1,3);
+
+    layout->setAlignment(Qt::AlignBottom);
     sound_button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    sound_button->show();
+    html_edit->hide();
+
 
 }
 
 MainWindow::~MainWindow()
 {
-    delete widget; // так же убил кнопки и layout
+    delete widget; // убивает всё
+
 }
 
 void MainWindow::click_button(const int i)
@@ -30,10 +37,19 @@ void MainWindow::click_button(const int i)
     qDebug() << "click" << i;
 
     if (i == 0)
+    {
+        html_edit->hide();
         sound_button->show();
+    }
     if (i == 1)
+    {
         sound_button->hide();
+        html_edit->show();
+    }
     if (i == 2)
+    {
         sound_button->hide();
+        html_edit->hide();
+    }
 }
 

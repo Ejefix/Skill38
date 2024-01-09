@@ -10,7 +10,8 @@ class SOUND_BUTTON : public QPushButton
 public:
     SOUND_BUTTON(QWidget *parent = nullptr);
     ~SOUND_BUTTON();
-    void paintEvent(QPaintEvent *event) override;
+  //  void paintEvent(QPaintEvent *event) override;
+protected:
     void mousePressEvent(QMouseEvent *event) override;
 
 private:

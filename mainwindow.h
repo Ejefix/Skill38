@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include "html_editor.h"
 #include "sound_button.h"
 
 class MainWindow : public QMainWindow
@@ -18,5 +19,6 @@ public:
     QWidget* widget;
     QGridLayout* layout;
     SOUND_BUTTON* sound_button;
+    HTML_editor * html_edit;
 };
 #endif // MAINWINDOW_H
