@@ -30,6 +30,7 @@ Blur::~Blur()
     delete label;
     delete button;
     delete slider;
+    qDebug() << "~Blur()";
 }
 
 void Blur::hide()
@@ -98,6 +99,11 @@ void Blur::applyBlurEffect()
     qDebug() << "blurEffect" << "pixmapItem";
   //  qDebug() << blurEffect;
   //  qDebug() << pixmapItem;
-
-
+/*
+ * разработчик - Qt ты управляешь динамической памятью?
+ * Qt - возможно...
+ * разработчик - ты очищаешь память за собой ?
+ * Qt - возможно...
+ * разработчик - э... (_!_)
+*/
 }
